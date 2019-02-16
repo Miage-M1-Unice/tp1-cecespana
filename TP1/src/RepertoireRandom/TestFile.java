@@ -17,6 +17,22 @@ public class TestFile {
 
 	}
 	
+    
+    static class DirectoryFilterEmbarque implements FilenameFilter {
+    	
+    	private Pattern pattern;
+    	
+    	public DirectoryFilterEmbarque(String regex) {
+    		pattern = Pattern.compile(regex);
+    	}
+
+    	@Override
+    	public boolean accept(File dir, String name) {
+    		return pattern.matcher(name).matches();
+    	}
+
+    }
+	/*
 	// anonymous inner class
 	  public static FilenameFilter filter(final String regex) {     
 		  // Creation of anonymous inner class:     
@@ -27,7 +43,7 @@ public class TestFile {
 			  }     
 		  }; // End of anonymous inner class   }
 	  }
-	
+	*/
 	public void question2() {
 		/*
 	    File path = new File("src");     
@@ -48,7 +64,7 @@ public class TestFile {
 			for(int i = 0; i<list.length;i++){
 				if(list[i].isDirectory()){
 					File fDirectory = new File(list[i].getPath());
-					File[] listDirectory = fDirectory.listFiles(filter(".*java"));
+					File[] listDirectory = fDirectory.listFiles(new DirectoryFilterEmbarque(".*java"));
 						for(int j = 0; j<listDirectory.length;j++){
 							System.out.println(listDirectory[j]);
 						}
