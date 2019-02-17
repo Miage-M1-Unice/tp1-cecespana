@@ -38,7 +38,7 @@ public class TestFile {
 		  // Creation of anonymous inner class:     
 		  return new FilenameFilter() {       
 			  private Pattern pattern = Pattern.compile(regex);       
-		  public boolean accept(File dir, String name) {         
+		  	  public boolean accept(File dir, String name) {         
 			  return pattern.matcher(name).matches();       
 			  }     
 		  }; // End of anonymous inner class   }
