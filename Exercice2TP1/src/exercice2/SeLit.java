@@ -28,7 +28,6 @@ public class SeLit {
         source.close();
 	}  
 	
-	@SuppressWarnings("resource")
 	void ecriture(String source) throws IOException {  
 		
 		BufferedWriter out = new BufferedWriter(new FileWriter(source,true));
